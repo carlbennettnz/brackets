@@ -24,17 +24,19 @@ export default (props: any) => {
   const teamStyle = {
     borderBottom: '1px solid #ccc',
     paddingLeft: 40,
+    height: 20,
     lineHeight: `${PLAYER_HEIGHT}px`,
     borderTop: '1px solid #eee',
     borderRight: '1px solid #eee',
     borderLeft: '1px solid #eee'
   }
 
-  const height = (r: number) => (r === 1 ? 40 : height(r - 1) + PLAYER_HEIGHT)
+  const height = (r: number) => (r === 1 ? 40 : height(r - 1) * 2)
 
   const secondTeamStyle = {
-    borderRight: '1px solid #ccc'
-    // paddingTop: height(props.id.r) - 20
+    borderRight: '1px solid #ccc',
+    paddingTop: height(props.id.r) - 20,
+    height: height(props.id.r)
   }
 
   return (
